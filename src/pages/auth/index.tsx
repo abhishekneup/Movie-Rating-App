@@ -5,12 +5,13 @@ import { useMutation } from "@tanstack/react-query";import { mutationLogin } fro
 
 const Auth = () => {
     
-    const { data, mutate }= useMutation(
+    const { data , mutate }= useMutation(
         {mutationKey:['login'], 
         mutationFn: mutationLogin})
 
     const handLogin=async()=>{
         await mutate;
+        localStorage.setItem("guest_session_id",data.guest_session_id)
     };
 
     return (
