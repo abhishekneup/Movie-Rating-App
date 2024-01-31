@@ -13,8 +13,8 @@ function App() {
     <Router>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
         <Route path="/auth" element={<Auth></Auth>}></Route>
+        <Route path="/" element={<Home/>}></Route>
         <Route path="/rated" element={<h1>RATED</h1>}></Route>
       </Routes>
     </Router>
