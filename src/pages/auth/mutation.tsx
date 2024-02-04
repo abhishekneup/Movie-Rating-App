@@ -4,14 +4,14 @@ export const mutationLogin = async () =>{
     
         {
             headers:{
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmY2I4MzcyYTUwMzRmMTAwMzA5OGM0MmMyMDA0N2ZjNCIsInN1YiI6IjY1YjUzNjQ2NGYzM2FkMDEzMTBiYTQ3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.GaGOql3_7LGBvGviuj2yHcOCv__yxMwgsXhaOKu1dR0 token'            },
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmY2I4MzcyYTUwMzRmMTAwMzA5OGM0MmMyMDA0N2ZjNCIsInN1YiI6IjY1YjUzNjQ2NGYzM2FkMDEzMTBiYTQ3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.GaGOql3_7LGBvGviuj2yHcOCv__yxMwgsXhaOKu1dR0',
+                        },
         }
     );
 
 
     
-console.log(res.json);
 
-return res.json();
+ return res.json();
 
 }

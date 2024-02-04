@@ -17,5 +17,5 @@ interface Props{
 export const ColumnDisplay=(props:Props)=>{
 
     return(
-        <div>{props.data[0].title}</div>)
+        <div>{props.data[3].title}</div>)
 };

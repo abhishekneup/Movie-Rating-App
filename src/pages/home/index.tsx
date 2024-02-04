@@ -21,8 +21,10 @@ export enum DisplayType{
     const { data: TVShowsdata, isLoading: isLoadingTVShows}=useQuery({
         queryKey:["tvshows"], 
         queryFn: fetchTVShows})
-        console.log("Movie Data:", moviedata.results);
-        console.log("TV Shows Data:", TVShowsdata.results);
+
+        if(isLoadingMovies||isLoadingTVShows)
+        {
+            return <h1>Loading...</h1>        }
         
         
     return(

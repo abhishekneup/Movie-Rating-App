@@ -9,14 +9,27 @@ const Auth = () => {
         {mutationKey:['login'], 
         mutationFn: mutationLogin});
 
-        let navigate = useNavigate();
-
-    const handLogin=async()=>{
-        await mutate;
-        localStorage.setItem("guest_session_id",data.guest_session_id);
-        navigate("/rated");
-
-    };
+    
+    let navigate = useNavigate();
+    
+    const handleLogin = async () => {
+        try {
+        
+          await mutate();
+    
+          //  if data is available before accessing 
+          if (data && data.guest_session_id) {
+            localStorage.setItem("guest_session_id", data.guest_session_id);
+            navigate("/");
+          } else {
+            console.error("No guest_session_id in the mutation response data.");
+          }
+        } catch (error) {
+          console.error("Error during login mutation:", error);
+         
+        }
+      };
+    
 
     return (
         
@@ -25,7 +38,7 @@ const Auth = () => {
                 <Header as="h2" color="teal" textAlign="center">Welcome! Login as Guest</Header>
                 <Form  size="large">
                     <Segment stacked>
-                        <Button color="teal" size="large" fluid onClick={handLogin}>{""}Login</Button>
+                        <Button color="teal" size="large"fluid onClick={handleLogin}>Login</Button>
                     </Segment>
                 </Form>
                 </Grid.Column>
