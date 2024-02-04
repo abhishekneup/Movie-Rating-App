@@ -22,7 +22,7 @@ export const ColumnDisplay=(props:Props)=>{
 
  
    return(
-           <Grid columns={5} centered verticalAlign="top">
+           <Grid columns={4} left verticalAlign="top" stackable>
             {data.map((displayData:DisplayData)=>(
                 <Grid.Column key={displayData.id}>
                     <Card.Group>

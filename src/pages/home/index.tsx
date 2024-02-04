@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "semantic-ui-react";
+import { Button, Segment } from "semantic-ui-react";
 import { ColumnDisplay } from "./column-display";
 import { fetchMovies,fetchTVShows } from "./query";
 import { useQuery } from "@tanstack/react-query";
@@ -28,8 +28,7 @@ export enum DisplayType{
         
         
     return(
-        <div style={{marginTop:50, height:"auto"}}>
-            {""}
+        <div style={{marginTop:50 }}>
             <Button.Group>
                 <Button color={displayType=== DisplayType.Movies? "teal" : undefined} 
                 onClick={()=>setDisplayType(DisplayType.Movies)}>
@@ -41,13 +40,16 @@ export enum DisplayType{
                 </Button>
 
             </Button.Group>
-            <div style={{marginTop:20}}>
+            <Segment raised fluid>
+                
+            <div style={{marginTop:20, height:"auto"}}>
                 {displayType === DisplayType.Movies? (
-                <ColumnDisplay data={moviedata.results} displayType={DisplayType.Movies}/>
-                ) :(
-                <ColumnDisplay data={TVShowsdata.results} displayType={DisplayType.TVShows}/>)
-                }
+                    <ColumnDisplay data={moviedata.results} displayType={DisplayType.Movies}/>
+                    ) :(
+                        <ColumnDisplay data={TVShowsdata.results} displayType={DisplayType.TVShows}/>)
+                    }
             </div>
+                    </Segment>
         </div>
     )
 }
