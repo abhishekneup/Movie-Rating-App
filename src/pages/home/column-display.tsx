@@ -1,4 +1,6 @@
+import { Card, Grid } from "semantic-ui-react";
 import {DisplayType} from "."
+import { Link } from "react-router-dom";
 
 interface DisplayData{
     id:number;
@@ -16,7 +18,25 @@ interface Props{
 }
 
 export const ColumnDisplay=(props:Props)=>{
+    const {data, displayType}=props;
 
-    return(
-        <div>{props.displayType===DisplayType.Movies ? props.data[3].title : props.data[3].name}</div>)
-};
+ 
+   return(
+           <Grid columns={5} centered verticalAlign="top">
+            {data.map((displayData:DisplayData)=>(
+                <Grid.Column key={displayData.id}>
+                    <Card.Group>
+                        {/* <Link to={} */}
+                        <Card 
+                            fluid image={`https://image.tmdb.org/t/p/original/${displayData.poster_path}` }
+                            header={   
+                                 displayType===DisplayType.Movies ?displayData.title : displayData.name
+                            } 
+                            description={displayData.overview.slice(0,350)+"..."} 
+                            meta={`Release Date: ${displayData.release_date} | Rating: ${displayData.vote_average}`} />
+                    </Card.Group>
+                    </Grid.Column>
+           ) )}
+           </Grid> 
+            
+   ) };
